@@ -39,7 +39,7 @@ export const App = () => {
               data-cy="ClearButton"
               type="button"
               className="delete ml-3"
-              onClick={() => handleClearSelectGood()}
+              onClick={handleClearSelectGood}
             />
           </>
         )}
@@ -47,23 +47,23 @@ export const App = () => {
       <table className="table">
         <tbody>
           {goods.map(good => {
-            const isSelectedGoodIsGood = selectedGood === good;
+            const isGoodSelected = selectedGood === good;
 
             return (
               <tr
                 data-cy="Good"
                 key={good}
                 className={cn({
-                  'has-background-success-light': isSelectedGoodIsGood,
+                  'has-background-success-light': isGoodSelected,
                 })}
               >
                 <td>
-                  {isSelectedGoodIsGood ? (
+                  {isGoodSelected ? (
                     <button
                       data-cy="RemoveButton"
                       type="button"
                       className="button is-info"
-                      onClick={() => handleClearSelectGood()}
+                      onClick={handleClearSelectGood}
                     >
                       -
                     </button>
